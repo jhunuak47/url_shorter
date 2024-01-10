@@ -1,8 +1,9 @@
+<!-- FILEPATH: /c:/Users/hp/OneDrive/Desktop/urlshorter/urlshortener/templates/result.html -->
 <!-- result.html -->
 {% extends 'base.html'  %}
 
-{%block content%}
-<h2>Shortened URL</h2>
-<p>Original URL: {{url_object.original_url}}</p>
-<p>Short URL: {{request.build_absolute_url(url_object.short_url)}}</p>
+{% block content %}
+    <h2>Shortened URL</h2>
+    <p>Original URL: {{ url_object.original_url }}</p>
+    <p>Short URL: {{ request.build_absolute_url(url_object.short_url) }}</p>
 {% endblock %}

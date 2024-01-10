@@ -3,7 +3,7 @@
 
 {% block content %}
 <h2>URL Shortener</h2>
-<form method="post" action="{%url 'url_shortener'%}">
+<form method="post" action="{% url 'urlshortener:url_shortener' %}">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Shorten URL</button>

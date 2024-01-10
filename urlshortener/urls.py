@@ -1,7 +1,11 @@
+# urls.py in urlshortener app
+
 from django.urls import path
 from . import views
 
+app_name = 'urlshortener'  # Set the application namespace
+
 urlpatterns = [
-    path('shorten/', views.shorten_url, name='shorten_url'),
-    path('<str:shortened_part>/', views.redirect_original_url, name='redirect_original_url'),
+    path('', views.url_shortener, name='url_shortener'),
+    path('<str:short_url>/', views.redirect_original, name='redirect_original'),
 ]

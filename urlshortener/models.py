@@ -1,8 +1,15 @@
 from django.db import models
+from django.utils import timezone
 
 class URLShortener(models.Model):
     original_url = models.URLField()
-    shortened_url = models.CharField(max_length=100, unique=True)
+    short_url = models.CharField(max_length=10, unique=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    click_count = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.original_url
+        return f"{self.original_url} -> {self.short_url}"
+    
+    class Meta:
+        app_label = 'urlshortener'
+        default_auto_field = 'django.db.models.BigAutoField'
